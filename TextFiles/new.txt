@@ -14,3 +14,5 @@ User: Wow, the store sucks. I hate it here
 
 #third_block#
 User: ok
+	#third_block#
+	
