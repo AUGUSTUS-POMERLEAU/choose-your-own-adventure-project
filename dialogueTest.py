@@ -1,8 +1,4 @@
 import string
-def makeNewFile():
-    with open("TextFiles/new.txt", 'w') as file:
-        file.write("a")
-
 def divide_blocks(file):
     all_blocks = {}
     current_block = "!!NONE!!"
