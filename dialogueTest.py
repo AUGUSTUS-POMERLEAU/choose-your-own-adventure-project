@@ -55,11 +55,15 @@ def get_level(line):
     return i
 
 def eval_command(string):
-    string_list = string.split()
+    string_list = string.split(":")
     command = string_list[0]
     target = string_list[1]
     if command == "goto":
         queue_.append(target)
+    elif command == "new":
+        vars[target] = 0
+    elif command in vars.keys():
+        vars[command] = target
 
 def eval_lines(lines):
     for line in lines:
@@ -70,7 +74,12 @@ def eval_lines(lines):
             cmd_ = line.replace("[","").replace("]","")
             eval_command(cmd_)
         else:
-            print(line.strip())
+            line = line.strip()
+            line.split("-@")
+            for segment in line:
+                if segment in vars:
+                    segment = vars[segment]
+            print(line)
 
 def eval_block(block_key):
     blocktext = blocks[block_key]
@@ -81,6 +90,7 @@ with open("TextFiles/new.txt") as file:
     blocks = divide_blocks(file)
     queue_ = []
     queue_.append("START")
+    vars = {}
     while len(queue_) > 0:
         eval_block(queue_[0])
 

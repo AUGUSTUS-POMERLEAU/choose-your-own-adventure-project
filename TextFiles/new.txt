@@ -3,21 +3,28 @@ Computer: Hey, do you want to go to the store?
 ->Yes
 	User: Yes, that sounds good.
 	Computer: Very well then. Let's go	
-	[goto second_block]
+	[goto:second_block]
 ->No
 	User: No thanks, I'd prefer not to.
 	Computer: Are you sure? It will be fun
 	->Go to the store with the computer
 		You: Ok, fine. I'll go.
 		Computer: Excellent!
-		[goto second_block]
+		[goto:second_block]
 	->Don't go
 		You: I'm sure.
 		Computer: Suit yourself. I will never speak to you again
-		[goto third_block]
+		[goto:third_block]
 
 #second_block#
 User: Wow, the store sucks. I hate it here
+Computer: I'll buy you something to make up for it.
+[new:cash]
+[cash:33]
+->Ask for an orange
+	Computer: Sorry, I only have -@cash-@. -@cash-@ is nowhere near enough for an orange.
+->Ask for an apple
+	Computer: Ugh, fine. I guess -@cash-@ is enough.
 
 #third_block#
 User: ok
