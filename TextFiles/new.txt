@@ -3,16 +3,21 @@ Computer: Hey, do you want to go to the store?
 ->Yes
 	User: Yes, that sounds good.
 	Computer: Very well then. Let's go	
-	#second_block#
+	[goto second_block]
 ->No
 	User: No thanks, I'd prefer not to.
-	Computer: Suit yourself. I will never speak to you again
-	#third_block#
+	Computer: Are you sure? It will be fun
+	->Go to the store with the computer
+		You: Ok, fine. I'll go.
+		Computer: Excellent!
+		[goto second_block]
+	->Don't go
+		You: I'm sure.
+		Computer: Suit yourself. I will never speak to you again
+		[goto third_block]
 
 #second_block#
 User: Wow, the store sucks. I hate it here
 
 #third_block#
 User: ok
-	#third_block#
-	
