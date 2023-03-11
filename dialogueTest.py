@@ -56,8 +56,9 @@ def get_level(line):
 
 def eval_command(string):
     string_list = string.split(":")
-    command = string_list[0]
-    target = string_list[1]
+    #print(string_list)
+    command = string_list[0].strip()
+    target = string_list[1].strip()
     if command == "goto":
         queue_.append(target)
     elif command == "new":
@@ -74,12 +75,13 @@ def eval_lines(lines):
             cmd_ = line.replace("[","").replace("]","")
             eval_command(cmd_)
         else:
-            line = line.strip()
-            line.split("-@")
+            line = line.strip().split("-@")
+            output_string = ""
             for segment in line:
                 if segment in vars:
                     segment = vars[segment]
-            print(line)
+                output_string += segment
+            print(output_string)
 
 def eval_block(block_key):
     blocktext = blocks[block_key]

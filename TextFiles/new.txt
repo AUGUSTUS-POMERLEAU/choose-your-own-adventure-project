@@ -22,9 +22,9 @@ Computer: I'll buy you something to make up for it.
 [new:cash]
 [cash:33]
 ->Ask for an orange
-	Computer: Sorry, I only have -@cash-@. -@cash-@ is nowhere near enough for an orange.
+	Computer: So@rry, I only have $-@cash-@. $-@cash-@ is nowhere near enough for an orange.
 ->Ask for an apple
-	Computer: Ugh, fine. I guess -@cash-@ is enough.
+	Computer: Ugh, fine. I guess $-@cash-@ is enough.
 
 #third_block#
 User: ok
